@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- device line tree -->
+    <record id="z_cloud_device_line_view_tree" model="ir.ui.view">
+        <field name="name">z_cloud_device_line.view.tree</field>
+        <field name="model">z.cloud.device.line</field>
+        <field name="arch" type="xml">
+            <tree string="Device Lines tree">
+                <field name="timestamp_device" optional="show"/>
+                <field name="timestamp_in" optional="show"/>
+                <field name="tag" optional="show"/>
+                <field name="payload" optional="show"/>
+                <field name="processed" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- device line form -->
+    <record id="z_cloud_device_line_view_form" model="ir.ui.view">
+        <field name="name">z_cloud_device_line.view.form</field>
+        <field name="model">z.cloud.device.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="timestamp_device"/>
+                    <field name="timestamp_in"/>
+                    <field name="tag"/>
+                    <field name="payload"/>
+                    <field name="processed"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
