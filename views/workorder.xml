@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MRP.WORKORDER TREE -->
+    <record id="zcloudapp_mrp_workorder_view_tree_inherit" model="ir.ui.view">
+        <field name="name">zcloudapp.mrp.workorder.tree.inherit.maintenance</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="sequence_name" readonly="1"/>
+            </field>
+            <field name="duration" position="after">
+                <field name="zcloud_electric_consume" sum="Electric consume" readonly="1" optional="show"/>
+                <field name="reliability" readonly="1" optional="hide"/>
+                <field name="reason" readonly="1" optional="hide"/>
+                <field name="zcloud_sincronize" readonly="1" optional="hide"/>
+                <field name="zcloud_stop" readonly="1" optional="hide"/>
+            </field>
+            <field name="duration" position="attributes">
+                <attribute name="attrs">{'invisible': [('production_state','=', 'draft')], 'readonly': ['|', ('is_user_working', '=', True), ('zcloud_sincronize', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- MRP.WORKORDER FORM -->
+    <record id="zcloudapp_mrp_production_workorder_form_view_inherit" model="ir.ui.view">
+        <field name="name">zcloudapp.mrp.workorder.form.view.inherit</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='time_ids']/tree/field[@name='loss_id']" position="before">
+                <field name="electric_consume" sum="Electric consume"/>
+            </xpath>
+            <xpath expr="//field[@name='time_ids']/form/group/group/field[@name='loss_id']" position="before">
+                <field name="electric_consume"/>
+            </xpath>
+            <xpath expr="//field[@name='time_ids']/tree" position="attributes">
+                <attribute name="default_order">date_start asc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
