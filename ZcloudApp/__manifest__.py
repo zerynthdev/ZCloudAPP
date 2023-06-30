@@ -6,16 +6,16 @@
     """,
     'description': """
         Zerynth Cloud App, connect your devices
-    
     """,
     'author': "Zerynth",
     'website': "https://it.zerynth.com/",
     'category': 'Services',
-    'version': '16.1',
+    'version': '14.1',
     "license": "LGPL-3",
     'price': 150,
+    'support':'odoo@bloomup.it',
+    "images": ['static/src/img/thumbnail.png'],
     'currency': 'EUR',
-
     'depends': [
         'base',
         'mrp'
