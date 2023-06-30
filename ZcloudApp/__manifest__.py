@@ -16,7 +16,7 @@
     'price': 150,
     'currency': 'EUR',
     'support':'odoo@bloomup.it',
-    "images": ['static/src/img/thumbnail.jpeg'],
+    "images": ['static/src/img/thumbnail.png'],
 
     'depends': [
         'base',
