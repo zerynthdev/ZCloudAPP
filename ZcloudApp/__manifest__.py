@@ -15,7 +15,8 @@
     "license": "LGPL-3",
     'price': 150,
     'currency': 'EUR',
-    "images": ['static/src/thumbnail.jpeg'],
+    'support':'odoo@bloomup.it',
+    "images": ['static/src/img/thumbnail.jpeg'],
 
     'depends': [
         'base',
