@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "zerynth_cloud_app",
+    'name': "Zerynth Cloud App",
     'summary': """
         Zerynth Cloud App
     """,
