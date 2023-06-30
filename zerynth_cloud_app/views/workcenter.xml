@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MRP.WORKCENTER -->
+    <record id="zcloudapp_mrp_workcenter_view_form_inherit" model="ir.ui.view">
+        <field name="name">zcloudapp.mrp.workcenter.form.inherit.maintenance</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button string="Crea connessione con il device" groups="base.group_no_one" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
+                </header>
+            </sheet>
+            <field name="name" position="after">
+                <field name="zcloud_sincronize" readonly="1"/>
+                <field name="device_id" attrs="{'readonly': [('zcloud_sincronize', '=', True)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

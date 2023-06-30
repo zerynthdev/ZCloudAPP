@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="device_rule_multi_company" model="ir.rule">
+            <field name="name">Device multi-company</field>
+            <field name="model_id" ref="model_z_cloud_device"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="device_line_rule_multi_company" model="ir.rule">
+            <field name="name">Device line multi-company</field>
+            <field name="model_id" ref="model_z_cloud_device_line"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="fleet_rule_multi_company" model="ir.rule">
+            <field name="name">Fleet multi-company</field>
+            <field name="model_id" ref="model_z_cloud_fleet"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="queue_rule_multi_company" model="ir.rule">
+            <field name="name">Raw Data Queue multi-company</field>
+            <field name="model_id" ref="model_z_cloud_queue"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="workspace_rule_multi_company" model="ir.rule">
+            <field name="name">Workspace multi-company</field>
+            <field name="model_id" ref="model_z_cloud_workspace"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>
