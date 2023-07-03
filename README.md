@@ -2,10 +2,6 @@
 
 ## **Zerynth Connector for Odoo**
 
-## Easily connect any industrial machinery with Odoo.
-
-## Key Benefits
-
 **Machinery data integrated with Odoo**  
 The Zerynth Platform extracts data from any industrial machine in less than 3 hours and seamlessly integrates with Odoo.
 
@@ -72,17 +68,9 @@ Book your personalized demo and speak with one of our IoT experts to discover th
 For any question or inquiry, please contact us and a member of our team will reach out to you soon!
 
 
-
-
-## **Connettore Zerynth per Odoo**
-
 ## Connetti facilmente qualsiasi macchinario industriale con Odoo.
 
-## **Connettore Zerynth per Odoo**
-
 ## Connetti facilmente qualsiasi macchinario industriale con Odoo.
-
-## Benefici Principali
 
 **Dati dei macchinari integrati con Odoo**  
 La piattaforma Zerynth estrae i dati da qualsiasi macchinario industriale in meno di 3 ore e si integra in facilmente con Odoo.
