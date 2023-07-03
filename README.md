@@ -36,8 +36,6 @@ Zerynth extract valuable data from industrial machines such as machinery status,
 
 ![](https://zerynth.com/wp-content/uploads/2023/05/plug-and-play-4zb-image.png "plug and play 4zb image")
 
-![](https://zerynth.com/wp-content/uploads/2023/05/plug-and-play-4zb-image.png "plug and play 4zb image")
-
 Industrial machines can be easily connected using Zerynth IoT Platform and Zerynth Edge IoT Kits. With remote access to assets and a no-code configuration, managing assets becomes intuitive and cost-effective from any location. Zerynth seamlessly adapts to both Cloud and on-premises deployments. It also supports any connectivity option available on site, including Wi-Fi, Ethernet, and cellular connectivity. This enables a straightforward and scalable installation on both modern and legacy systems.
 
 ### **Fully compatible with all Odoo versions**
@@ -103,8 +101,6 @@ Zerynth estrae dati preziosi dai macchinari industriali, come lo stato delle mac
 [![](https://zerynth.com/wp-content/uploads/2023/05/odoo-coffe-machine-screen.png)](https://zerynth.com/wp-content/uploads/2023/05/odoo-coffe-machine-screen.png "odoo coffe machine screen")
 
 ### **Implementazione plug and play e non invasiva. Implementazione in SaaS o on-premise. Connettività Wi-Fi, Ethernet o cellulare.**
-
-![](https://zerynth.com/wp-content/uploads/2023/05/plug-and-play-4zb-image.png "plug and play 4zb image")
 
 ![](https://zerynth.com/wp-content/uploads/2023/05/plug-and-play-4zb-image.png "plug and play 4zb image")
 
