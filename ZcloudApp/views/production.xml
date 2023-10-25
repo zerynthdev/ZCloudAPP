@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="zcloudapp_mrp_production_view_fomr_inherit" model="ir.ui.view">
+        <field name="name">zcloudapp.mrp.production.view.from.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group//group" position="inside">
+                <field name="pcs_ok"/>
+                <field name="pcs_ko"/>
+                <field name="old_pcs_ko" readonly="1" groups="base.group_no_one"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

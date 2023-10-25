@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="oee_loss_form_view_inherit" model="ir.ui.view">
+        <field name="name">oee_loss_form_view_inherit</field>
+        <field name="model">mrp.workcenter.productivity.loss</field>
+        <field name="inherit_id" ref="mrp.oee_loss_form_view"/>
+        <field name="arch" type="xml">
+            <field name="loss_id" position="after">
+                <field name="is_working"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
