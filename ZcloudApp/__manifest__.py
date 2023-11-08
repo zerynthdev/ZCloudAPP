@@ -14,6 +14,8 @@
     "license": "LGPL-3",
     'price': 0,
     'currency': 'EUR',
+    "images": ['static/src/img/thumbnail.png'],
+
     'depends': [
         'base',
         'mrp'
