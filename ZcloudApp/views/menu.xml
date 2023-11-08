@@ -108,7 +108,7 @@
         action="z_cloud_workspace_action"
         groups="ZcloudApp.zcloud_user"
         parent="menu_zerynth_device"
-        sequence="10"/>
+        sequence="20"/>
     <!-- fleet action -->
     <record id="z_cloud_fleet_action" model="ir.actions.act_window">
         <field name="name">Fleets</field>
@@ -123,4 +123,48 @@
         groups="ZcloudApp.zcloud_user"
         parent="menu_zerynth_device"
         sequence="15"/>
+    <!-- data action -->
+    <record id="z_cloud_data_action" model="ir.actions.act_window">
+        <field name="name">Cloud Data</field>
+        <field name="res_model">z.cloud.data</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- data menu -->
+    <menuitem
+        id="menu_zerynth_data"
+        name="Cloud Data"
+        action="z_cloud_data_action"
+        groups="ZcloudApp.zcloud_admin"
+        parent="menu_zerynth_device"
+        sequence="25"/>
+    <!-- data form action -->
+    <record model="ir.actions.act_window" id="z_cloud_data_action_form">
+        <field name="name">Data form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">z.cloud.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+    <!-- part program variable action -->
+    <record id="part_program_variable_action" model="ir.actions.act_window">
+        <field name="name">Part Program Variable</field>
+        <field name="res_model">part.program.variable</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- part program variable menu -->
+    <menuitem
+        id="menu_zerynth_part_program_variable"
+        name="Part program variable"
+        action="part_program_variable_action"
+        groups="ZcloudApp.zcloud_admin"
+        parent="menu_zerynth_device"
+        sequence="30"/>
+    <!-- part program variable form action -->
+    <record model="ir.actions.act_window" id="part_program_variable_action_form">
+        <field name="name">Part program variable form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">part.program.variable</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
 </odoo>

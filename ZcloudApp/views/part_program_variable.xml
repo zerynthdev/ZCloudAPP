@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- part program variable tree -->
+    <record id="part_program_variable_view_tree" model="ir.ui.view">
+        <field name="name">part_program_variable.view.tree</field>
+        <field name="model">part.program.variable</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name" widget="section_and_note_text"/>
+                <field name="workcenter_id"/>
+                <field name="active" optional="hide"/>
+                <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" title="Open part program variable form" groups="base.group_no_one"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- part program variable form -->
+    <record id="part_program_variable_view_form" model="ir.ui.view">
+        <field name="name">part_program_variable.view.form</field>
+        <field name="model">part.program.variable</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group name="part program variable_form_group">
+                        <group name="part program variable_info1">
+                            <field name="name"/>
+                            <field name="workcenter_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- part program variable search and filter -->
+    <record id="part_program_variable_search_view" model="ir.ui.view">
+        <field name="name">part_program_variable.search</field>
+        <field name="model">part.program.variable</field>
+        <field name="arch" type="xml">
+            <search string="part program variable">
+                <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="workcenter_id" string="Workcenter" filter_domain="[('workcenter_id', 'ilike', self)]"/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

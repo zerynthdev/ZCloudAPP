@@ -114,7 +114,7 @@
                     </group>
                     <notebook>
                         <page string="Device Lines" name="device_lines">
-                            <field name="device_line_ids" widget="section_and_note_one2many" mode="tree,kanban" readonly="1">
+                            <field name="device_line_ids" mode="tree,kanban" readonly="1">
                                 <form>
                                     <group>
                                         <field name="timestamp_device"/>
@@ -128,7 +128,7 @@
                                     <field name="timestamp_device" optional="show"/>
                                     <field name="timestamp_in" optional="show"/>
                                     <field name="tag" optional="show"/>
-                                    <field name="payload" optional="show"/>
+                                    <field name="payload" optional="show" widget="section_and_note_text"/>
                                     <field name="processed" optional="show"/>
                                 </tree>
                                 <kanban class="o_kanban_mobile">
@@ -184,7 +184,7 @@
                         <page string="Other info" name="other_info">
                             <group name="configuration">
                                 <group>
-                                    <field name="action_server_id"/>
+                                    <field name="action_server_id" groups="ZcloudApp.zcloud_admin"/>
                                 </group>
                             </group>
                         </page>

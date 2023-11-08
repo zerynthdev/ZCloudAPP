@@ -33,10 +33,9 @@ class ZcloudDeviceLine(models.Model):
     processed = fields.Boolean(
         string="Processed",
     )
-    
+
     company_id = fields.Many2one(
-        'res.company', 
-        required=True, 
-        readonly=True, 
+        'res.company',
+        required=True,
+        readonly=True,
         default=lambda self: self.env.company)
-        

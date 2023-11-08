@@ -5,6 +5,7 @@ import requests
 import logging
 from datetime import datetime
 import base64
+import uuid
 
 _logger = logging.getLogger(__name__)
 
@@ -87,7 +88,6 @@ class ZcloudDevice(models.Model):
         string="Action Server",
         comodel_name="ir.actions.server",
         tracking=True
-        # TODO: aggiungi gruppo admin
     )
 
     @api.depends("workcenter_id.device_id")
@@ -263,7 +263,7 @@ class ZcloudDevice(models.Model):
     Funzione che crea un ordine e lo avvia su Zcloud
     """
 
-    def create_and_start_order(self, workorder_id=None):
+    def create_and_start_order(self, workorder_id=None, part_program_dict={}):
         self.ensure_one()
         _logger.info(_("(DEVICE - CREATE AND START ORDER REQUEST)Executing create_and_start_order on the device name: %s asset_id: %s" % (
             self.device_name, self.asset_id)))
@@ -271,7 +271,16 @@ class ZcloudDevice(models.Model):
             workorder_id = self.env["mrp.workorder"].browse(workorder_id)
         if workorder_id.zcloud_sincronize:
             _logger.error(
-                _("(DEVICE - CREATE AND START ORDER REQUEST)ERROR: workorder %s already created on Zcloud" % workorder_id))
+                _("(DEVICE - CREATE AND START ORDER REQUEST)ERROR: workorder %s already created on Zcloud" % workorder_id.sequence_name))
+            return False
+        if not self.workspace_id:
+            _logger.error(
+                '(DEVICE - CREATE AND START ORDER REQUEST)ERROR: Errore: il device non è collegato ad un workspace')
+            self.env['z.cloud.log'].log(
+                name="DEVICE - CREATE AND START ORDER REQUEST",
+                device_id=self.id,
+                response="ERROR: Errore: il device non è collegata ad una workspace(workspace_id=False)",
+            )
             return False
         if self.asset_id:
             error_message, zcloud_url, api_key = self._prepare_zcloud_request_parameters()
@@ -292,7 +301,7 @@ class ZcloudDevice(models.Model):
             now_isoformat = datetime.now().replace(microsecond=0).isoformat() + "Z"
             create_start_data = {
                 "asset_id": self.asset_id,
-                "description": "CREATE AND START: %s" % workorder_id.name,
+                "description": "CREATE AND START: %s" % workorder_id.sequence_name,
                 "conf_ts": now_isoformat,
                 "start_ts": now_isoformat,
                 "provider": self.env['ir.config_parameter'].sudo().get_param('ZcloudApp.zcloud_api_provider') or "odoo",
@@ -302,8 +311,10 @@ class ZcloudDevice(models.Model):
                         'name': workorder_id.product_id.name
                     },
                     "quantity": int(workorder_id.qty_production),
-                    "workcenter_id": self.workcenter_id.name
-                }
+                    "workcenter_id": self.workcenter_id.name,
+                    "part_program": part_program_dict  # FIX MATTEO: messo qua perchè va dentro config
+                },
+
             }
             try:
                 _logger.info(_(
@@ -344,12 +355,13 @@ class ZcloudDevice(models.Model):
                     return True
                 else:
                     _logger.error(
-                        '(CREATE AND START ORDER REQUEST)ERROR: Errore nella richiesta stato: %s, messaggio: %s' % (response.status_code, response.json()))
+                        '(CREATE AND START ORDER REQUEST)ERROR: Errore nella richiesta stato: %s, messaggio: %s' % (response.status_code, response.text))
                     self.env['z.cloud.log'].log(
                         name="DEVICE - CREATE AND START ORDER REQUEST",
                         device_id=self.id,
                         workspace_id=self.workspace_id.id,
-                        response="ERROR: Errore nella richiesta stato: %s, messaggio: %s" % (response.status_code, response.json()),
+                        response="ERROR: Errore nella richiesta stato: %s, messaggio: %s" % (
+                            response.status_code, response.text),
                         request=z_create_and_start_order_url,
                         status_code=response.status_code
                     )
@@ -389,11 +401,20 @@ class ZcloudDevice(models.Model):
             workorder_id = self.env["mrp.workorder"].browse(workorder_id)
         if not workorder_id.zcloud_sincronize:
             _logger.error(
-                _("(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud" % workorder_id))
+                _("(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud" % workorder_id.sequence_name))
             return False
         if workorder_id.zcloud_stop:
             _logger.error(
-                _("(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s already stopped on Zcloud" % workorder_id))
+                _("(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s already stopped on Zcloud" % workorder_id.sequence_name))
+            return False
+        if not self.workspace_id:
+            _logger.error(
+                '(DEVICE - STOP ORDER REQUEST)ERROR: Errore: il device non è collegato ad un workspace')
+            self.env['z.cloud.log'].log(
+                name="DEVICE - STOP ORDER REQUEST",
+                device_id=self.id,
+                response="ERROR: Errore: il device non è collegata ad una workspace(workspace_id=False)",
+            )
             return False
         if self.asset_id:
             error_message, zcloud_url, api_key = self._prepare_zcloud_request_parameters()
@@ -414,7 +435,7 @@ class ZcloudDevice(models.Model):
             now_isoformat = datetime.now().replace(microsecond=0).isoformat() + "Z"
             stop_data = {
                 "asset_id": self.asset_id,
-                "description": "STOP: %s" % workorder_id.name,
+                "description": "STOP: %s" % workorder_id.sequence_name,
                 "end_ts": now_isoformat,
             }
             try:
@@ -502,7 +523,16 @@ class ZcloudDevice(models.Model):
             workorder_id = self.env["mrp.workorder"].browse(workorder_id)
         if not workorder_id.zcloud_sincronize:
             _logger.error(
-                _("(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud" % workorder_id))
+                _("(DEVICE - DELETE ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud" % workorder_id.sequence_name))
+            return False
+        if not self.workspace_id:
+            _logger.error(
+                '(DEVICE - DELETE ORDER REQUEST)ERROR: Errore: il device non è collegato ad un workspace')
+            self.env['z.cloud.log'].log(
+                name="DEVICE - DELETE ORDER REQUEST",
+                device_id=self.id,
+                response="ERROR: Errore: il device non è collegata ad una workspace(workspace_id=False)",
+            )
             return False
         if self.asset_id:
             error_message, zcloud_url, api_key = self._prepare_zcloud_request_parameters()
@@ -640,7 +670,16 @@ class ZcloudDevice(models.Model):
             workorder_id = self.env["mrp.workorder"].browse(workorder_id)
         if not workorder_id.zcloud_sincronize or not workorder_id.zcloud_stop:
             _logger.error(
-                _("(DEVICE - GET ORDER DATA REQUEST)ERROR: workorder %s not sincronize on Zcloud or not stopped on Zcloud" % workorder_id))
+                _("(DEVICE - GET ORDER DATA REQUEST)ERROR: workorder %s not sincronize on Zcloud or not stopped on Zcloud" % workorder_id.sequence_name))
+            return False
+        if not self.workspace_id:
+            _logger.error(
+                '(DEVICE - GET ORDER REQUEST)ERROR: Errore: il device non è collegato ad un workspace')
+            self.env['z.cloud.log'].log(
+                name="DEVICE - GET ORDER REQUEST",
+                device_id=self.id,
+                response="ERROR: Errore: il device non è collegata ad una workspace(workspace_id=False)",
+            )
             return False
         if self.asset_id:
             error_message, zcloud_url, api_key = self._prepare_zcloud_request_parameters()
@@ -760,6 +799,15 @@ class ZcloudDevice(models.Model):
             _logger.error(
                 _("(DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST)ERROR: workcenter %s already sincronize on Zcloud" % workcenter_id))
             return False
+        if not self.workspace_id:
+            _logger.error(
+                '(DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST)ERROR: Errore: il device non è collegato ad un workspace')
+            self.env['z.cloud.log'].log(
+                name="DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST",
+                device_id=self.id,
+                response="ERROR: Errore: il device non è collegata ad una workspace(workspace_id=False)",
+            )
+            return False
         if self.asset_id:
             error_message, zcloud_url, api_key = self._prepare_zcloud_request_parameters()
             if error_message:
@@ -773,16 +821,18 @@ class ZcloudDevice(models.Model):
                     response=error_message
                 )
                 return False
+            if not workcenter_id.workcenter_uuid:
+                workcenter_id.workcenter_uuid = str(uuid.uuid4())
             z_create_connection_asset_workspace_url = "%s/workspaces/%s/workcenters" % (
                 zcloud_url, self.workspace_id.workspace_id)
             headers = {"X-API-KEY": api_key}
             connection_data = {
                 "asset_id": self.asset_id,
-                "workcenter_id": workcenter_id.name,
+                "workcenter_id": workcenter_id.workcenter_uuid,
             }
             try:
                 _logger.info(_(
-                    '(DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST) URL %s' % (z_create_connection_asset_workspace_url)))
+                    '(DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST) URL %s PARAMS %s' % (z_create_connection_asset_workspace_url, connection_data)))
 
                 response = requests.post(
                     url=z_create_connection_asset_workspace_url, headers=headers, json=connection_data)
@@ -814,7 +864,8 @@ class ZcloudDevice(models.Model):
                         request=z_create_connection_asset_workspace_url,
                         response="200: DATA: \n%s" % json_data,
                         status_code=200,
-                        is_error=False
+                        is_error=False,
+                        payload=connection_data
                     )
                     return True
                 else:
@@ -827,7 +878,8 @@ class ZcloudDevice(models.Model):
                         response="ERROR: Errore nella richiesta stato: %s risposta %s" % (
                             response.status_code, response.json()),
                         request=z_create_connection_asset_workspace_url,
-                        status_code=response.status_code
+                        status_code=response.status_code,
+                        payload=connection_data
                     )
                     return False
             except Exception as error:
@@ -839,7 +891,7 @@ class ZcloudDevice(models.Model):
                     workspace_id=self.workspace_id.id,
                     response="ERROR EXCEPT: %s" % error,
                     request=z_create_connection_asset_workspace_url,
-                    status_code=501
+                    status_code=501,
                 )
                 return False
         else:

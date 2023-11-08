@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- data tree -->
+    <record id="z_cloud_data_view_tree" model="ir.ui.view">
+        <field name="name">z_cloud_data.view.tree</field>
+        <field name="model">z.cloud.data</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="device_id" optional="show" readonly="1"/>
+                <field name="duration" optional="show" widget="float_time"/>
+                <field name="date_start" optional="show" readonly="1"/>
+                <field name="date_end" optional="show" readonly="1"/>
+                <field name="status" optional="show" readonly="1"/>
+                <field name="is_working" optional="hide" readonly="1"/>
+                <field name="electric_consume" optional="show" readonly="1"/>
+                <field name="pcs_ok" optional="hide" readonly="1"/>
+                <field name="pcs_ko" optional="hide" readonly="1"/>
+                <field name="workorder_not_found" optional="show" readonly="1"/>
+                <field name="workorder_id" optional="show" options="{'no_create': True}"/>
+                <field name="active" optional="hide"/>
+                <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" title="Open data form" groups="base.group_no_one"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- data form -->
+    <record id="z_cloud_data_view_form" model="ir.ui.view">
+        <field name="name">z_cloud_data.view.form</field>
+        <field name="model">z.cloud.data</field>
+        <field name="arch" type="xml">
+            <form string="datas">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="id" invisible="1"/>
+                    <group name="data_form_group">
+                        <group name="data_info1">
+                            <field name="device_id" readonly="1"/>
+                            <field name="duration" widget="float_time"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="pcs_ok"/>
+                            <field name="pcs_ko"/>
+                        </group>
+                        <group name="data_info2">
+                            <field name="status"/>
+                            <field name="is_working"/>
+                            <field name="electric_consume"/>
+                            <field name="workorder_not_found"/>
+                            <field name="workorder_id" options="{'no_create': True}"/>
+                        </group>
+                        <field name="zcloud_json_data" readonly="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- data search and filter -->
+    <record id="z_cloud_data_search_view" model="ir.ui.view">
+        <field name="name">z_cloud_data.search</field>
+        <field name="model">z.cloud.data</field>
+        <field name="arch" type="xml">
+            <search string="data">
+                <field name="device_id" string="Device" filter_domain="[('device_id', 'ilike', self)]"/>
+                <field name="status" string="Status" filter_domain="[('status', 'ilike', self)]"/>
+                <field name="workorder_id" string="Workorder" filter_domain="[('workorder_id', 'ilike', self)]"/>
+                <separator/>
+                <filter string="With workorder" name="yes_workorder" domain="[('workorder_id','!=',False)]"/>
+                <separator/>
+                <filter string="Without workorder" name="no_workorder" domain="[('workorder_id','=',False)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
