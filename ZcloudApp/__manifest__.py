@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Zerynth Cloud App",
+    'name': "IoT Connector for Manufacturing",
     'summary': """
         Zerynth Cloud App
     """,
@@ -12,7 +12,7 @@
     'category': 'Services',
     'version': '16.2',
     "license": "LGPL-3",
-    'price': 150,
+    'price': 0,
     'currency': 'EUR',
     'depends': [
         'base',
