@@ -9,13 +9,48 @@
         <field name="arch" type="xml">
             <sheet position="before">
                 <header>
-                    <button string="Crea connessione con il device" groups="base.group_no_one" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
+                    <button string="Crea connessione con il device" groups="ZcloudApp.zcloud_admin" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
                 </header>
             </sheet>
             <field name="name" position="after">
-                <field name="zcloud_sincronize" readonly="1"/>
-                <field name="device_id" attrs="{'readonly': [('zcloud_sincronize', '=', True)]}"/>
+                <field name="zcloud_sincronize" readonly="1" attrs="{'invisible': [('device_id', '=', False)]}" groups="ZcloudApp.zcloud_admin"/>
+                <field name="device_id" attrs="{'readonly': [('zcloud_sincronize', '=', True)]}" groups="ZcloudApp.zcloud_admin"/>
+                <field name="workcenter_uuid" readonly="1" groups="ZcloudApp.zcloud_admin"/>
             </field>
+            <sheet position="after">
+                <div class="oe_chatter" groups="ZcloudApp.zcloud_admin">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </sheet>
+            <notebook position="inside">
+                <page string="Zcloud Configuration" name="configuration" attrs="{'invisible': [('device_id', '=', False)]}" groups="ZcloudApp.zcloud_admin">
+                    <group string="General settings">
+                        <group>
+                            <!-- non serve più perchè ci mandano loro IDLE -->
+                            <!-- <field name="automatic_idle_time"/>
+                            <field name="idle_phase_name" attrs="{'invisible': [('automatic_idle_time', '=', False)]}"/> -->
+                            <field name="automatic_tooling_time"/>
+                            <field name="tooling_phase_name" attrs="{'invisible': [('automatic_tooling_time', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="automatic_close_zcloud"/>
+                            <field name="automatic_close_new_order"/>
+                            <field name="automatic_close_next_order"/>
+                        </group>
+                    </group>
+                    <group string="Part program">
+                        <field name="part_program_type"/>
+                        <field name="part_progra_variable_ids" groups="ZcloudApp.zcloud_admin" attrs="{'invisible': [('part_program_type', '!=', 'variable')], 'required': [('part_program_type', '=', 'variable')]}" context="{'default_workcenter_id': active_id}">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="name" widget="section_and_note_text"/>
+                                <field name="workcenter_id" groups="base.group_no_one"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </notebook>
         </field>
     </record>
 

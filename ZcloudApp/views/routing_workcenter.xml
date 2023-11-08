@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MRP.ROUTING.WORKCENTER -->
+    <record id="zcloudapp_mrp_routing_workcenter_form_view_inherit" model="ir.ui.view">
+        <field name="name">zcloudapp.mrp_routing_workcenter_form_view</field>
+        <field name="model">mrp.routing.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <!-- pagina con configurazione part program per operazioni bom -->
+                <page string="Zcloud Configuration" name="configuration" groups="ZcloudApp.zcloud_admin">
+                    <group string="Part program">
+                        <field name="part_program_type"/>
+                        <field name="part_program_file_name" invisible="1"/>
+                        <field name="part_program_file" filename="part_program_file_name" attrs="{'invisible': [('part_program_type', '!=', 'file')], 'required': [('part_program_type', '=', 'file'), ('part_program_url', '=', False)]}"/>
+                        <field name="part_program_url" widget="url" attrs="{'invisible': [('part_program_type', '!=', 'file')], 'required': [('part_program_type', '=', 'file'), ('part_program_file', '=', False)]}"/>
+                        <field name="part_program_path" attrs="{'invisible': [('part_program_type', '!=', 'path')], 'required': [('part_program_type', '=', 'path')]}"/>
+                        <field name="part_program_variable" attrs="{'invisible': [('part_program_type', '!=', 'variable')], 'required': [('part_program_type', '=', 'variable')]}"/>
+                        <field name="part_program_json" attrs="{'invisible': [('part_program_type', '!=', 'json')] , 'required': [('part_program_type', '=', 'json')]}"/>
+                    </group>
+                </page>
+            </notebook>
+            <!-- aggiungo chatter solo per admin -->
+            <sheet position="after">
+                <div class="oe_chatter" groups="ZcloudApp.zcloud_admin">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </sheet>
+        </field>
+    </record>
+
+</odoo>

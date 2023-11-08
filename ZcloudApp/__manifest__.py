@@ -1,23 +1,19 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Zerynth Cloud App",
+    'name': "IoT Connector for Manufacturing",
     'summary': """
-        Zerynth Cloud App
+        IoT Connector for Manufacturing
     """,
     'description': """
         Zerynth Cloud App, connect your devices
-    
     """,
     'author': "Zerynth",
     'website': "https://it.zerynth.com/",
     'category': 'Services',
-    'version': '16.1',
+    'version': '16.2',
     "license": "LGPL-3",
-    'price': 150,
+    'price': 0,
     'currency': 'EUR',
-    'support':'odoo@bloomup.it',
-    "images": ['static/src/img/thumbnail.png'],
-
     'depends': [
         'base',
         'mrp'
@@ -37,7 +33,14 @@
         "views/workcenter.xml",
         "views/workorder.xml",
         "views/config.xml",
-        "views/zcloud_log.xml"
+        "views/zcloud_log.xml",
+        "views/zcloud_data.xml",
+        "views/product.xml",
+        "views/routing_workcenter.xml",
+        "views/production.xml",
+        "views/part_program_variable.xml",
+        "views/productivity_loss.xml",
+        "wizard/confirm_start_workorder_wizard_views.xml",
     ],
     'application': True
 }

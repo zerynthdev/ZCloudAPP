@@ -108,7 +108,6 @@ class ZcloudDeviceWorkspace(models.Model):
                     json_data = response.json()
                     _logger.info(_(
                         "(GET WORKSPACE ORDER LIST REQUEST) RESPONSE JSON: %s" % json_data))
-                    # TODO: per ora salvo e basta nel campo tutto
                     self.order_list = json_data
                     if "orders" not in json_data:
                         _logger.error(

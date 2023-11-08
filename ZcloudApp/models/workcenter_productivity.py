@@ -10,3 +10,26 @@ class MrpWorkcenterProductivity(models.Model):
         string="Electric consume",
         copy=False
     )
+
+    from_zcloud = fields.Boolean(
+        string="From Zcloud",
+        copy=False
+    )
+    # pezzi prodotti
+    pcs_ok = fields.Float(
+        string="Pieces done"
+    )
+    # pezzi scartati
+    pcs_ko = fields.Float(
+        string="Pieces discarded"
+    )
+
+
+class MrpWorkcenterProductivityLoss(models.Model):
+    _inherit = "mrp.workcenter.productivity.loss"
+
+    is_working = fields.Boolean(
+        string="Working",
+        copy=False,
+        help="Define if is a working phase from Zerynth Cloud"
+    )
