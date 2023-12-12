@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Zerynth Cloud App",
+    'name': "Zerynth Platform App",
     'summary': """
-        Zerynth Cloud App
+        Zerynth Platform App
     """,
     'description': """
-        Zerynth Cloud App, connect your devices
+        Zerynth Platform App, connect your devices
     """,
     'author': "Zerynth",
     'website': "https://it.zerynth.com/",

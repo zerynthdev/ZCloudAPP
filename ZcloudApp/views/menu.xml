@@ -45,7 +45,7 @@
         sequence="30"/>
         <!-- log action -->
         <record id="zcloud_log_action" model="ir.actions.act_window">
-            <field name="name">ZCLoud Log</field>
+            <field name="name">Zerynth Platform Log</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">z.cloud.log</field>
             <field name="view_mode">tree,form</field>
@@ -53,21 +53,21 @@
         <!-- log settings menu -->
         <menuitem
             id="menu_zerynth_log"
-            name="Zcloud Log"
+            name="Zerynth Platform Log"
             action="zcloud_log_action"
             parent="menu_zerynth_settings"
             sequence="99"
             groups="ZcloudApp.zcloud_admin,base.group_system,base.group_no_one"/>
         <!-- log root parent menu -->
         <menuitem 
-            name="ZCloud" 
+            name="Zerynth Platform" 
             id="zcloud_log_root_menu" 
             sequence="99" 
             parent="base.menu_custom" 
             groups="base.group_system"/>
         <!-- log root menu -->
         <menuitem 
-            name="ZCloud Log" 
+            name="Zerynth Platform Log" 
             parent="zcloud_log_root_menu" 
             action="zcloud_log_action" 
             id="zcloud_log_menu" 
@@ -125,14 +125,14 @@
         sequence="15"/>
     <!-- data action -->
     <record id="z_cloud_data_action" model="ir.actions.act_window">
-        <field name="name">Cloud Data</field>
+        <field name="name">Zerynth Platform Data</field>
         <field name="res_model">z.cloud.data</field>
         <field name="view_mode">tree,form</field>
     </record>
     <!-- data menu -->
     <menuitem
         id="menu_zerynth_data"
-        name="Cloud Data"
+        name="Zerynth Platform Data"
         action="z_cloud_data_action"
         groups="ZcloudApp.zcloud_admin"
         parent="menu_zerynth_device"

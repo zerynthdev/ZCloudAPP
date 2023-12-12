@@ -12,7 +12,7 @@ class MrpWorkcenterProductivity(models.Model):
     )
 
     from_zcloud = fields.Boolean(
-        string="From Zcloud",
+        string="From Zerynth Platform",
         copy=False
     )
     # pezzi prodotti
@@ -31,5 +31,5 @@ class MrpWorkcenterProductivityLoss(models.Model):
     is_working = fields.Boolean(
         string="Working",
         copy=False,
-        help="Define if is a working phase from Zerynth Cloud"
+        help="Define if is a working phase from Zerynth Platform"
     )

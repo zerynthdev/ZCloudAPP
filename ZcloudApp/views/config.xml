@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="ZcloudApp" string="Zcloud App" data-key="ZcloudApp">
+                <div class="app_settings_block" data-string="ZcloudApp" string="Zerynth Platform App" data-key="ZcloudApp">
                     <h2>Connection</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6 o_setting_box">
@@ -17,26 +17,28 @@
                                     <label for="zcloud_url"/>
                                 </span>
                                 <div class="text-muted">
-                                    <p>URL of Zerynth cloud</p>
-                                    <b>(inserire l'url da http fino a /v3)</b>
+                                    <p>URL of Zerynth Platform</p>
+                                    <b>(The URL must be from https to /v3)</b>
                                     <field name="zcloud_url" style="width: 100% !important"/>
                                 </div>
                                 <span class="o_form_label">
                                     <label for="zcloud_api_key"/>
                                 </span>
                                 <div class="text-muted">
-                                    <p>API-KEY for Zerynth cloud requests</p>
+                                    <p>API-KEY for Zerynth Platform requests</p>
                                     <span groups="base.group_no_one">
-                                        <b>(inserire nell'header di tutte le richieste: "X-API-KEY: API-KEY")</b>
+                                        <b>(Insert in the header of all requests: "X-API-KEY: API-KEY")</b>
                                     </span>
                                     <field name="zcloud_api_key" password="True" style="width: 100% !important"/>
                                 </div>
-                                <span class="o_form_label">
-                                    <label for="zcloud_api_provider"/>
-                                </span>
-                                <div class="text-muted">
-                                    <p>Provider to set in the API call to Zerynth cloud</p>
-                                    <field name="zcloud_api_provider" style="width: 100% !important"/>
+                                <div style="display:none">
+                                    <span class="o_form_label">
+                                        <label for="zcloud_api_provider"/>
+                                    </span>
+                                    <div class="text-muted">
+                                        <p>Provider to set in the API call to Zerynth Platform</p>
+                                        <field name="zcloud_api_provider" style="width: 100% !important"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>

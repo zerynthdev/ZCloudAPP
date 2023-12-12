@@ -6,7 +6,7 @@ import base64
 
 class ZcloudDeviceFleet(models.Model):
     _name = "z.cloud.fleet"
-    _description = "The fleet of devices from Zerynth Cloud"
+    _description = "The fleet of devices from Zerynth Platform"
     _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     _rec_name = "fleet_id"
     _rec_names_search = ['fleet_id']

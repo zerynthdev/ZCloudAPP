@@ -53,7 +53,7 @@
         <field name="arch" type="xml">
             <form string="Workspaces">
                 <header>
-                    <button string="Scarica lista ordini" groups="base.group_no_one" type="object" name="debug_button_get_workspace_order_list" class="btn-primary"/>
+                    <button string="Retrive orders list" groups="base.group_no_one" type="object" name="debug_button_get_workspace_order_list" class="btn-primary"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">

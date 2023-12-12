@@ -23,7 +23,7 @@ class ZcloudData(models.Model):
     active = fields.Boolean(
         string="Active",
         default=True,
-        help="By unchecking the active field, you may hide a ZcloudData you will not use.",
+        help="By unchecking the active field, you may hide a Zerynth Platform Data you will not use.",
         tracking=True
     )
 

@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 
 class PartProgramVariable(models.Model):
     _name = "part.program.variable"
-    _description = "Classe per configurare le ricette Variabili da inviare alla macchina"
+    _description = "Class to configure recipes Variables to send to the machine"
     _inherit = ['mail.thread']
     _order = 'sequence,id'
 
