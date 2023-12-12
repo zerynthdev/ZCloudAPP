@@ -85,6 +85,7 @@ class MrpRoutingWorkcenter(models.Model):
                             attachment.id, attachment.access_token)
                     part_program_dict['part_program_type'] = self.part_program_type
                     part_program_dict['part_program_data'] = attachment_url
+                    part_program_dict['part_program_name'] = attachment.name
             if self.part_program_url:
                 part_program_dict['part_program_type'] = self.part_program_type
                 part_program_dict['part_program_data'] = self.part_program_url

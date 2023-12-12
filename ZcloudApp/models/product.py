@@ -15,5 +15,5 @@ class ProductTemplate(models.Model):
         string='Generic product',
         default=False, # FIX: meglio che il prodotto non sia generico per default
         tracking=True,
-        help='This flag is used for the Zcloud Part program. If checked the Part program will be set from the workorder. If not the Part program is taken from the workcenter or the BOM routing'
+        help='This flag is used for the Zerynth Platform Part program. If checked the Part program will be set from the workorder. If not the Part program is taken from the workcenter or the BOM routing'
     )

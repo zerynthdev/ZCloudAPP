@@ -9,13 +9,13 @@ class ZcloudAppSettings(models.TransientModel):
     ZcloudApp(connettore con sistemi Zerynth)
     """
     _inherit = 'res.config.settings'
-    _description = 'Estenzione impostazioni di configurazione per ZcloudApp connessione Zerynth'
+    _description = 'Configuration Settings Extension for Zerynth Platform Connection'
 
     zcloud_url = fields.Char(
-        string="Zcloud Url", config_parameter="ZcloudApp.zcloud_url")
+        string="Zerynth Platform Url", config_parameter="ZcloudApp.zcloud_url", default="https://api.zdm.zerynth.com/v3")
 
     zcloud_api_key = fields.Char(
-        string="Zcloud Api Key", config_parameter="ZcloudApp.zcloud_api_key")
+        string="Zerynth Platform Api Key", config_parameter="ZcloudApp.zcloud_api_key")
 
     zcloud_api_provider = fields.Char(
-        string="Zcloud Api Provider", config_parameter="ZcloudApp.zcloud_api_provider", default="odoo")
+        string="Zerynth Platform Api Provider", config_parameter="ZcloudApp.zcloud_api_provider", default="odoo")

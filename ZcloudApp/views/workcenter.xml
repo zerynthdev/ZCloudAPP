@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <sheet position="before">
                 <header>
-                    <button string="Crea connessione con il device" groups="ZcloudApp.zcloud_admin" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
+                    <button string="Create connection with device" groups="ZcloudApp.zcloud_admin" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
                 </header>
             </sheet>
             <field name="name" position="after">
@@ -24,7 +24,7 @@
                 </div>
             </sheet>
             <notebook position="inside">
-                <page string="Zcloud Configuration" name="configuration" attrs="{'invisible': [('device_id', '=', False)]}" groups="ZcloudApp.zcloud_admin">
+                <page string="Zerynth Platform Configuration" name="configuration" attrs="{'invisible': [('device_id', '=', False)]}" groups="ZcloudApp.zcloud_admin">
                     <group string="General settings">
                         <group>
                             <!-- non serve più perchè ci mandano loro IDLE -->
