@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-16 14:05+0000\n"
-"PO-Revision-Date: 2023-10-16 16:05+0200\n"
+"POT-Creation-Date: 2023-11-22 14:08+0000\n"
+"PO-Revision-Date: 2023-11-22 15:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #. module: ZcloudApp
 #. odoo-python
@@ -52,7 +52,7 @@ msgstr ""
 #, python-format
 msgid ""
 "(DEVICE - CREATE AND START ORDER REQUEST)ERROR: workorder %s already "
-"created on Zcloud"
+"created on Zerynth Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -100,7 +100,7 @@ msgstr ""
 #, python-format
 msgid ""
 "(DEVICE - CREATE CONNECTION ASSET WORKSPACE REQUEST)ERROR: workcenter %s "
-"already sincronize on Zcloud"
+"already sincronize on Zerynth Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -145,7 +145,8 @@ msgstr ""
 #: code:addons/ZcloudApp/models/device.py:0
 #, python-format
 msgid ""
-"(DEVICE - DELETE ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud"
+"(DEVICE - DELETE ORDER REQUEST)ERROR: workorder %s not sincronize on "
+"Zerynth Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -191,7 +192,7 @@ msgstr ""
 #, python-format
 msgid ""
 "(DEVICE - GET ORDER DATA REQUEST)ERROR: workorder %s not sincronize on "
-"Zcloud or not stopped on Zcloud"
+"Zerynth Platform or not stopped on Zerynth Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -236,7 +237,8 @@ msgstr ""
 #: code:addons/ZcloudApp/models/device.py:0
 #, python-format
 msgid ""
-"(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s already stopped on Zcloud"
+"(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s already stopped on Zerynth "
+"Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -244,7 +246,8 @@ msgstr ""
 #: code:addons/ZcloudApp/models/device.py:0
 #, python-format
 msgid ""
-"(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s not sincronize on Zcloud"
+"(DEVICE - STOP ORDER REQUEST)ERROR: workorder %s not sincronize on Zerynth "
+"Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -311,101 +314,127 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
-msgid "<b>(inserire l'url da http fino a /v3)</b>"
-msgstr ""
+msgid "<b>(The URL must be from https to /v3)</b>"
+msgstr "<b>(L' URL deve iniziare da https fino a /v3)</b>"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>ERRORE CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato "
-"al device '%s' del centro di lavoro '%s' non creato e avviato su Zcloud. "
-"<b>Controlla nei log</b>"
+"<b>ERROR CREATION:</b> work order '%s', operation '%s', connected to the "
+"device '%s' of the work center '%s' not created and started on Zerynth "
+"Platform. <b>Check the log</b>"
 msgstr ""
+"<b>ERRORE CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', connesso "
+"al device '%s' del centro di lavoro '%s' non creato e avviato sulla "
+"piattaforma Zerynth. <b>Controlla nei log</b>"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>ERRORE ELIMINAZIONE:</b> ordine di lavoro '%s', operazione '%s', "
-"collegato al device '%s' del centro di lavoro '%s' non eliminato su Zcloud. "
-"<b>Controlla nei log</b>"
+"<b>ERROR ELIMINATION:</b> work order '%s', operation '%s', connected to the "
+"device '%s' of the work center '%s' not deleted on Zerynth Platform. "
+"<b>Check the log</b>"
 msgstr ""
+"<b>ERRORE CANCELLAZIONE:</b> ordine di lavoro '%s', operazione '%s', "
+"connesso al device '%s' del centro di lavoro '%s' non eliminato sulla "
+"piattaforma Zerynth. <b>Controlla nei log</b>"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>ERRORE STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al "
-"device '%s' del centro di lavoro '%s' non fermato su Zcloud. <b>Controlla "
-"nei log</b>"
+"<b>ERROR STOP:</b> work order '%s', operation '%s', connected to the device "
+"'%s' of the work center '%s' not stopped on Zerynth Platform. <b>Check the "
+"log</b>"
 msgstr ""
+"<b>ERRORE STOP:</b> ordine di lavoro '%s', operazione '%s', connesso al "
+"device '%s' del centro di lavoro '%s' non stoppato sulla piattaforma "
+"Zerynth. <b>Controlla nei log</b>"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workcenter.py:0
 #, python-format
 msgid ""
-"<b>ERRORE:</b> Connessione tra il device e il workcenter '%s' fallita su "
-"Zcloud. <b>Controlla nei log</b>"
+"<b>ERROR:</b> Connection between the device and the workcenter '%s' failed "
+"on Zerynth Platform. <b>Check the log</b>"
 msgstr ""
+"<b>ERRORE:</b> la connessione tra il device e il centro di lavoro '%s' non "
+"è riuscita sulla piattaforma Zerynth. <b>Controlla nei log</b>"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>OK CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato al "
-"device '%s' del centro di lavoro '%s' creato e avviato su Zcloud."
+"<b>OK CREATION:</b> work order '%s', operation '%s', connected to the "
+"device '%s' of the work center '%s' created and started on Zerynth Platform."
 msgstr ""
+"<b>OK CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', connesso al "
+"device '%s' del centro di lavoro '%s' creato e avviato sulla piattaforma "
+"Zerynth."
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>OK ELIMINAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato "
-"al device '%s' del centro di lavoro '%s' eliminato su Zcloud."
+"<b>OK ELIMINATION:</b> work order '%s', operation '%s', connected to the "
+"device '%s' of the work center '%s' deleted on Zerynth Platform."
 msgstr ""
+"<b>OK ELIMINAZIONE:</b> ordine di lavoro '%s', operazione '%s', connesso al "
+"device '%s' del centro di lavoro '%s' eliminato sulla piattaforma Zerynth."
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device "
-"'%s' del centro di lavoro '%s' fermato automaticamente come da "
+"<b>OK STOP:</b> work order '%s', operation '%s', connected to the device "
+"'%s' of the work center '%s' automatically stopped as per the work center "
+"configuration."
+msgstr ""
+"<b>OK STOP:</b> l'ordine di lavoro '%s', operazione '%s', connesso al "
+"device '%s' del centro di lavoro '%s' stoppato automaticamente secondo la "
 "configurazione del centro di lavoro."
-msgstr ""
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device "
-"'%s' del centro di lavoro '%s' fermato da Zcloud."
+"<b>OK STOP:</b> work order '%s', operation '%s', connected to the device "
+"'%s' of the work center '%s' stopped from Zerynth Platform."
 msgstr ""
+"<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', connesso al device "
+"'%s' del centro di lavoro '%s' stoppato dalla piattaforma Zerynth."
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
-"<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device "
-"'%s' del centro di lavoro '%s' fermato su Zcloud."
+"<b>OK STOP:</b> work order '%s', operation '%s', connected to the device "
+"'%s' of the work center '%s' stopped on Zerynth Platform."
 msgstr ""
+"<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', connesso al device "
+"'%s' del centro di lavoro '%s' stoppato sulla piattaforma Zerynth."
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workcenter.py:0
 #, python-format
 msgid ""
-"<b>OK:</b> Creata connesione tra il device e il workcenter '%s' su Zcloud"
+"<b>OK:</b> Connection created between the device and the workcenter '%s' on "
+"Zerynth Platform"
 msgstr ""
+"<b>OK:</b> Connessione creata tra il dispositivo e il centro di lavoro '%s' "
+"sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_kanban
@@ -442,15 +471,26 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
 msgid ""
 "<span groups=\"base.group_no_one\">\n"
-"                                        <b>(inserire nell'header di tutte "
-"le richieste: \"X-API-KEY: API-KEY\")</b>\n"
+"                                        <b>(Insert in the header of all "
+"requests: \"X-API-KEY: API-KEY\")</b>\n"
 "                                    </span>"
 msgstr ""
+"<span groups=\"base.group_no_one\">\n"
+"                                        <b>(Inserire nell'intestazione di "
+"tutte le richieste: \"X-API-KEY: API-KEY\")</b>\n"
+"                                    </span>"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_queue
 msgid "A queue of raw data sent by Zerynth Cloud"
 msgstr "Una coda di dati grezzi inviati da Zerynth Cloud"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/device.py:0
+#, python-format
+msgid "A work center is not connected to this device"
+msgstr "Un centro di lavoro non è connesso a questo device"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter__automatic_close_new_order
@@ -469,8 +509,8 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
-msgid "API-KEY for Zerynth cloud requests"
-msgstr "API-KEY per le richieste a Zerynth cloud"
+msgid "API-KEY for Zerynth Platform requests"
+msgstr "API-KEY per le richieste della piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_routing_workcenter__message_needaction
@@ -568,7 +608,7 @@ msgstr "Allegato"
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_fleet__message_attachment_count
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_workspace__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Numero allegati"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter__automatic_idle_time
@@ -588,7 +628,7 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter__automatic_close_zcloud
-msgid "Automatic workorder close from Zerynth cloud(Authorization)"
+msgid "Automatic workorder close from Zerynth Platform(Authorization)"
 msgstr "Chiusura automatica di un ordine di lavoro da Zerynth cloud"
 
 #. module: ZcloudApp
@@ -634,7 +674,8 @@ msgstr ""
 #. module: ZcloudApp
 #: model:ir.model.fields,help:ZcloudApp.field_z_cloud_data__active
 msgid ""
-"By unchecking the active field, you may hide a ZcloudData you will not use."
+"By unchecking the active field, you may hide a Zerynth Platform Data you "
+"will not use."
 msgstr ""
 "Deselezionando il campo attivo, potresti nascondere uno ZcloudData che non "
 "utilizzerai."
@@ -662,21 +703,16 @@ msgstr "Annulla"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_part_program_variable
-msgid "Classe per configurare le ricette Variabili da inviare alla macchina"
-msgstr ""
+msgid "Class to configure recipes Variables to send to the machine"
+msgstr "Classe per configurare le ricette. Variabili da inviare alla macchina"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
-msgid "Closing workorder from Zcloud with the name %s"
-msgstr "Chiusura ordine di lavoro da Zcloud con il nome %s"
-
-#. module: ZcloudApp
-#: model:ir.actions.act_window,name:ZcloudApp.z_cloud_data_action
-#: model:ir.ui.menu,name:ZcloudApp.menu_zerynth_data
-msgid "Cloud Data"
-msgstr "Dati Cloud orfani"
+msgid "Closing workorder from Zerynth Platform with the name %s"
+msgstr ""
+"Chiusura dell'ordine di lavoro dalla piattaforma Zerynth con il nome %s"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device__company_id
@@ -691,6 +727,11 @@ msgstr "Azienda"
 #: model:ir.ui.menu,name:ZcloudApp.menu_zerynth_settings
 msgid "Configuration"
 msgstr "Configurazione"
+
+#. module: ZcloudApp
+#: model:ir.model,name:ZcloudApp.model_res_config_settings
+msgid "Configuration Settings Extension for Zerynth Platform Connection"
+msgstr "Impostazioni di configurazione"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.confirm_start_workorder_wizard_view_form
@@ -708,9 +749,18 @@ msgid "Connection"
 msgstr "Connessione"
 
 #. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_workcenter_view_form_inherit
-msgid "Crea connessione con il device"
+#. odoo-python
+#: code:addons/ZcloudApp/models/workcenter.py:0
+#, python-format
+msgid "Connection created device-workcenter on Zerynth Platform"
 msgstr ""
+"Creazione della connessione device-centro di lavoro sulla piattaforma "
+"Zerynth"
+
+#. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_workcenter_view_form_inherit
+msgid "Create connection with device"
+msgstr "Crea connessione con il device"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_confirm_start_workorder_wizard__create_uid
@@ -740,17 +790,10 @@ msgstr ""
 
 #. module: ZcloudApp
 #. odoo-python
-#: code:addons/ZcloudApp/models/workcenter.py:0
-#, python-format
-msgid "Creato connessione device-workcenter su Zcloud"
-msgstr ""
-
-#. module: ZcloudApp
-#. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
-msgid "Creato ordine di lavoro su Zcloud"
-msgstr ""
+msgid "Created work order on Zerynth Platform"
+msgstr "Ordine di lavoro creato sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device__device_line_ids
@@ -784,10 +827,21 @@ msgid "Date start"
 msgstr "Data di inizio"
 
 #. module: ZcloudApp
-#: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter_productivity_loss__is_working
 #: model:ir.model.fields,help:ZcloudApp.field_z_cloud_data__is_working
 msgid "Define if is a working phase from Zerynth Cloud"
 msgstr "Definisce se è una fase di lavoro da Zerynth Cloud"
+
+#. module: ZcloudApp
+#: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter_productivity_loss__is_working
+msgid "Define if is a working phase from Zerynth Platform"
+msgstr "Definisce se è una fase di lavoro da Zerynth Cloud"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid "Deleted work order on Zerynth Platform"
+msgstr "Ordine di lavoro eliminato sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter__device_id
@@ -851,65 +905,36 @@ msgstr "Consumo elettrico"
 
 #. module: ZcloudApp
 #. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid "Eliminato ordine di lavoro su Zcloud"
-msgstr ""
-
-#. module: ZcloudApp
-#. odoo-python
 #: code:addons/ZcloudApp/models/workcenter.py:0
 #, python-format
-msgid "Errore connessione device-workcenter su Zcloud"
+msgid "Error connection between device-workcenter on Zerynth Platform"
 msgstr ""
+"Errore di connessione tra device-centro di lavoro su piattaforma Zerynth"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
-msgid "Errore creazione ordine di lavoro su Zcloud"
+msgid "Error creating work order on Zerynth Platform"
 msgstr ""
+"Errore durante la creazione dell'ordine di lavoro sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
-msgid "Errore eliminare ordine di lavoro su Zcloud"
+msgid "Error deleting work order on Zerynth Platform"
 msgstr ""
+"Errore durante l'eliminazione dell'ordine di lavoro sulla piattaforma "
+"Zerynth"
 
 #. module: ZcloudApp
 #. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
-msgid "Errore fermare ordine di lavoro su Zcloud"
+msgid "Error stopping work order on Zerynth Platform"
 msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.model,name:ZcloudApp.model_res_config_settings
-msgid ""
-"Estenzione impostazioni di configurazione per ZcloudApp connessione Zerynth"
-msgstr "Impostazioni di configurazione"
-
-#. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid "Fermato ordine di lavoro automaticamente da odoo"
-msgstr ""
-
-#. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid "Fermato ordine di lavoro da Zcloud"
-msgstr ""
-
-#. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid "Fermato ordine di lavoro su Zcloud"
-msgstr ""
+"Errore durante lo stop dell'ordine di lavoro sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_routing_workcenter__part_program_file
@@ -971,7 +996,7 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter_productivity__from_zcloud
-msgid "From Zcloud"
+msgid "From Zerynth Platform"
 msgstr "Da Zcloud"
 
 #. module: ZcloudApp
@@ -1109,18 +1134,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workcenter.py:0
-#, python-format
-msgid "Il device selezionato è gia collegato ad un altro centro di lavoro"
-msgstr ""
-
-#. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device__image_1920
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_fleet__image_1920
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_workspace__image_1920
 msgid "Image"
-msgstr ""
+msgstr "Immagine"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device__image_1024
@@ -1234,8 +1252,8 @@ msgstr "Righe con i valori del device"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_log
-msgid "Log delle richieste a Zcloud"
-msgstr ""
+msgid "Log of the request to Zerynth Platform"
+msgstr "Log della richiesta alla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_routing_workcenter__message_main_attachment_id
@@ -1353,7 +1371,7 @@ msgstr ""
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_production__old_pcs_ko
 msgid "Old Pieces discarded"
-msgstr ""
+msgstr "Vecchi pezzi scartati"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_data_view_tree
@@ -1367,28 +1385,28 @@ msgstr "Apri vista form"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__zcloud_get_data
-msgid "Order data retrive from zerynth cloud"
+msgid "Order data retrive from zerynth platform"
 msgstr "Recupero dei dati dell'ordine da zerynth cloud"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__zcloud_sincronize
-msgid "Order sincronized on zerynth cloud"
+msgid "Order sincronized on zerynth platform"
 msgstr "Ordine sincronizzato su zerynth cloud"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__zcloud_stop
-msgid "Order stopped on zerynth cloud"
+msgid "Order stopped on zerynth platform"
 msgstr "Ordine fermato su zerynth cloud"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_workspace_view_form
 msgid "Orders List"
-msgstr ""
+msgstr "Lista ordini"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_workspace__order_list
 msgid "Orders list"
-msgstr ""
+msgstr "Lista ordini"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
@@ -1501,15 +1519,8 @@ msgstr "Produttività"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
-msgid "Provider to set in the API call to Zerynth cloud"
+msgid "Provider to set in the API call to Zerynth Platform"
 msgstr "Provider da impostare nelle chiamate API a Zerynth cloud"
-
-#. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
-msgid ""
-"Questa operazione andrà a sovrascrivere i dati degli ordini con quelli "
-"ricevuti."
-msgstr ""
 
 #. module: ZcloudApp
 #: model:ir.actions.act_window,name:ZcloudApp.z_cloud_queue_action
@@ -1521,13 +1532,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__reason
 msgid "Reason"
 msgstr "Motivo"
-
-#. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid "Recupero dati ordine di lavoro da Zcloud"
-msgstr ""
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__reliability
@@ -1552,6 +1556,34 @@ msgid "Responsible User"
 msgstr "Utente responsabile"
 
 #. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
+msgid "Retrieve orders data"
+msgstr "Recupera dati ordini"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid "Retrieving work order data from Zerynth Platform"
+msgstr "Recupero dei dati dell'ordine di lavoro dalla piattaforma Zerynth"
+
+#. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_workspace_view_form
+msgid "Retrive orders list"
+msgstr "Recupera l'elenco degli ordini"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid ""
+"Retrived data for work order '%s', operation '%s' from Zerynth Platform.<br/"
+">Data received from Zerynth Platform:<br/>%s"
+msgstr ""
+"Recuperati i dati per l'ordine di lavoro '%s', operazione '%s' dalla "
+"piattaforma Zerynth.<br/>Dati ricevuti dalla piattaforma Zerynth:<br/>%s"
+
+#. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_routing_workcenter__message_has_sms_error
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter__message_has_sms_error
 #: model:ir.model.fields,field_description:ZcloudApp.field_part_program_variable__message_has_sms_error
@@ -1560,25 +1592,6 @@ msgstr "Utente responsabile"
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_fleet__message_has_sms_error
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_workspace__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
-
-#. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
-msgid "Scarica dati degli ordini"
-msgstr ""
-
-#. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_workspace_view_form
-msgid "Scarica lista ordini"
-msgstr ""
-
-#. module: ZcloudApp
-#. odoo-python
-#: code:addons/ZcloudApp/models/workorder.py:0
-#, python-format
-msgid ""
-"Scaricati i dati relativi all'ordine di lavoro '%s', operazione '%s' da "
-"Zcloud.<br/>Dati ricevuti da Zcloud:<br/>%s"
 msgstr ""
 
 #. module: ZcloudApp
@@ -1616,6 +1629,20 @@ msgid "Status code"
 msgstr "Codice stato"
 
 #. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid "Stopped work order automatically by odoo"
+msgstr "Ordine di lavoro fermato automaticamente da odoo"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid "Stopped work order from Zerynth Platform"
+msgstr "Ordine di lavoro fermato dalla piattaforma Zerynth"
+
+#. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device_line__tag
 msgid "Tag"
 msgstr ""
@@ -1631,8 +1658,9 @@ msgstr "L' API-KEY non è stata impostata nelle configurazioni"
 #. odoo-python
 #: code:addons/ZcloudApp/models/device.py:0
 #, python-format
-msgid "The Zcloud url has not been set in the settings"
-msgstr "Lo Zcloud url non è stata impostata nelle configurazioni"
+msgid "The Zerynth Platform Url has not been set in the settings"
+msgstr ""
+"L'URL della piattaforma Zerynth non è stato impostato nelle impostazioni"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_data
@@ -1641,13 +1669,13 @@ msgstr "Dati orfani ricevuti da Zcloud"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_device
-msgid "The device created from Zerynth Cloud"
+msgid "The device created from Zerynth Platform"
 msgstr "Il device creato da Zerynth Cloud"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_fleet
-msgid "The fleet of devices from Zerynth Cloud"
-msgstr ""
+msgid "The fleet of devices from Zerynth Platform"
+msgstr "I fleet di device della piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter__idle_phase_name
@@ -1672,6 +1700,13 @@ msgstr ""
 
 #. module: ZcloudApp
 #. odoo-python
+#: code:addons/ZcloudApp/models/workcenter.py:0
+#, python-format
+msgid "The selected device is already connected to another work center"
+msgstr "Il device selezionato è già collegato ad un altro centro di lavoro"
+
+#. module: ZcloudApp
+#. odoo-python
 #: code:addons/ZcloudApp/models/workorder.py:0
 #, python-format
 msgid ""
@@ -1683,7 +1718,7 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_z_cloud_workspace
-msgid "The workspace of fleets from Zerynth Cloud"
+msgid "The workspace of fleets from Zerynth Platform"
 msgstr ""
 
 #. module: ZcloudApp
@@ -1692,6 +1727,17 @@ msgstr ""
 #, python-format
 msgid "There are multiple workorder with the name %s in odoo"
 msgstr "Esistono più ordini di lavoro con il nome %s in odoo"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/device.py:0
+#, python-format
+msgid ""
+"There are no synchronized work orders on Zerynth platform completed in the "
+"work center: %s"
+msgstr ""
+"Non ci sono ordini di lavoro sincronizzati sulla piattaforma Zerynth "
+"completati nel centro di lavoro: %s"
 
 #. module: ZcloudApp
 #. odoo-python
@@ -1751,14 +1797,20 @@ msgstr ""
 #: model:ir.model.fields,help:ZcloudApp.field_product_product__generic_product
 #: model:ir.model.fields,help:ZcloudApp.field_product_template__generic_product
 msgid ""
-"This flag is used for the Zcloud Part program. If checked the Part program "
-"will be set from the workorder. If not the Part program is taken from the "
-"workcenter or the BOM routing"
+"This flag is used for the Zerynth Platform Part program. If checked the "
+"Part program will be set from the workorder. If not the Part program is "
+"taken from the workcenter or the BOM routing"
 msgstr ""
 "Questo flag viene utilizzato per il programma Zcloud Part. Se selezionato, "
 "il part program verrà impostato dall'ordine di lavoro. In caso contrario, "
 "il programma pezzo viene preso dal centro di lavoro o dal ciclo della "
 "distinta base"
+
+#. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
+msgid "This operation will overwrite the orders data with those received."
+msgstr ""
+"Questa operazione sovrascriverà i dati degli ordini con quelli ricevuti."
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_z_cloud_device_line__timestamp_device
@@ -1784,18 +1836,18 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
-msgid "URL of Zerynth cloud"
-msgstr "URL di Zerynth cloud"
+msgid "URL of Zerynth Platform"
+msgstr "URL della piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_routing_workcenter__part_program_url
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__part_program_url
 msgid "Url"
-msgstr ""
+msgstr "URL"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter__workcenter_uuid
-msgid "Used to sincronyze with Zerynth Cloud"
+msgid "Used to sincronyze with Zerynth Platform"
 msgstr "Utilizzato per la sincronizzazione con Zerynth Cloud"
 
 #. module: ZcloudApp
@@ -1865,17 +1917,24 @@ msgstr ""
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_mrp_workcenter
 msgid "Work Center"
-msgstr "Centro di Lavoro"
+msgstr "Centro di lavoro"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_mrp_routing_workcenter
 msgid "Work Center Usage"
-msgstr ""
+msgstr "Utilizzo Centri di Lavoro"
 
 #. module: ZcloudApp
 #: model:ir.model,name:ZcloudApp.model_mrp_workorder
 msgid "Work Order"
 msgstr "Ordine di lavoro"
+
+#. module: ZcloudApp
+#. odoo-python
+#: code:addons/ZcloudApp/models/workorder.py:0
+#, python-format
+msgid "Work order stopped on Zerynth Platform"
+msgstr "L'ordine di lavoro stoppato sulla piattaforma Zerynth"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_part_program_variable__workcenter_id
@@ -1897,7 +1956,7 @@ msgstr "Perdite di produttività del centro di lavoro"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workcenter__zcloud_sincronize
-msgid "Workcenter sincronized on zerynth cloud"
+msgid "Workcenter sincronized on Zerynth Platform"
 msgstr "Centro di lavoro sincronizzato su zerynth cloud"
 
 #. module: ZcloudApp
@@ -1965,53 +2024,6 @@ msgstr ""
 "Perdite di produttività."
 
 #. module: ZcloudApp
-#: model:ir.actions.act_window,name:ZcloudApp.zcloud_log_action
-msgid "ZCLoud Log"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.ui.menu,name:ZcloudApp.zcloud_log_root_menu
-msgid "ZCloud"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.ui.menu,name:ZcloudApp.zcloud_log_menu
-msgid "ZCloud Log"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_api_key
-msgid "Zcloud Api Key"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_api_provider
-msgid "Zcloud Api Provider"
-msgstr ""
-
-#. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
-msgid "Zcloud App"
-msgstr ""
-
-#. module: ZcloudApp
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_production_workorder_form_view_inherit
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_routing_workcenter_form_view_inherit
-#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_workcenter_view_form_inherit
-msgid "Zcloud Configuration"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.ui.menu,name:ZcloudApp.menu_zerynth_log
-msgid "Zcloud Log"
-msgstr ""
-
-#. module: ZcloudApp
-#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_url
-msgid "Zcloud Url"
-msgstr ""
-
-#. module: ZcloudApp
 #: model:ir.actions.server,name:ZcloudApp.ir_cron_ZcloudQueue_datas_ir_actions_server
 #: model:ir.cron,cron_name:ZcloudApp.ir_cron_ZcloudQueue_datas
 msgid "ZcloudQueue datas cron"
@@ -2025,17 +2037,62 @@ msgstr ""
 #. module: ZcloudApp
 #: model:ir.module.category,name:ZcloudApp.module_category_zcloud
 msgid "Zerynth Cloud App"
-msgstr ""
+msgstr "Piattaforma Zerynth App"
 
 #. module: ZcloudApp
-#: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__zcloud_id
-msgid "Zerynth cloud ID"
-msgstr ""
+#: model:ir.ui.menu,name:ZcloudApp.zcloud_log_root_menu
+msgid "Zerynth Platform"
+msgstr "Piattaforma Zerynth"
+
+#. module: ZcloudApp
+#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_api_key
+msgid "Zerynth Platform Api Key"
+msgstr "Piattaforma Zerynth Api Key"
+
+#. module: ZcloudApp
+#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_api_provider
+msgid "Zerynth Platform Api Provider"
+msgstr "Piattaforma Zerynth Api Provider"
+
+#. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.res_zcloudapp_config
+msgid "Zerynth Platform App"
+msgstr "Piattaforma Zerynth App"
+
+#. module: ZcloudApp
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_production_workorder_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_routing_workcenter_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:ZcloudApp.zcloudapp_mrp_workcenter_view_form_inherit
+msgid "Zerynth Platform Configuration"
+msgstr "Piattaforma Zerynth Configurazione"
+
+#. module: ZcloudApp
+#: model:ir.actions.act_window,name:ZcloudApp.z_cloud_data_action
+#: model:ir.ui.menu,name:ZcloudApp.menu_zerynth_data
+msgid "Zerynth Platform Data"
+msgstr "Dati Cloud orfani"
+
+#. module: ZcloudApp
+#: model:ir.actions.act_window,name:ZcloudApp.zcloud_log_action
+#: model:ir.ui.menu,name:ZcloudApp.menu_zerynth_log
+#: model:ir.ui.menu,name:ZcloudApp.zcloud_log_menu
+msgid "Zerynth Platform Log"
+msgstr "Piattaforma Zerynth Log"
+
+#. module: ZcloudApp
+#: model:ir.model.fields,field_description:ZcloudApp.field_res_config_settings__zcloud_url
+msgid "Zerynth Platform Url"
+msgstr "Piattaforma Zerynth Url"
 
 #. module: ZcloudApp
 #: model:ir.model.fields,help:ZcloudApp.field_mrp_workcenter__automatic_close_zcloud
-msgid "Zerynth cloud can close the workorder."
+msgid "Zerynth Platform can close the workorder."
 msgstr "Zerynth cloud può chiudere l'ordine di lavoro."
+
+#. module: ZcloudApp
+#: model:ir.model.fields,field_description:ZcloudApp.field_mrp_workorder__zcloud_id
+msgid "Zerynth platform ID"
+msgstr "Piattaforma Zerynth ID"
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_fleet_view_form
@@ -2086,7 +2143,7 @@ msgstr ""
 
 #. module: ZcloudApp
 #: model_terms:ir.ui.view,arch_db:ZcloudApp.z_cloud_device_view_form
-msgid "timworkspace_idstamp_in:"
+msgid "timestamp_in:"
 msgstr ""
 
 #. module: ZcloudApp

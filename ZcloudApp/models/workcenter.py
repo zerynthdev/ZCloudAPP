@@ -31,7 +31,7 @@ class MrpWorkcenter(models.Model):
     )
 
     zcloud_sincronize = fields.Boolean(
-        string="Workcenter sincronized on zerynth cloud",
+        string="Workcenter sincronized on Zerynth Platform",
         copy=False,
         tracking=True
     )
@@ -53,10 +53,10 @@ class MrpWorkcenter(models.Model):
 
     # configurazioni
     automatic_close_zcloud = fields.Boolean(
-        string="Automatic workorder close from Zerynth cloud(Authorization)",
+        string="Automatic workorder close from Zerynth Platform(Authorization)",
         tracking=True,
         default=True,
-        help="Zerynth cloud can close the workorder."
+        help="Zerynth Platform can close the workorder."
     )
     automatic_close_new_order = fields.Boolean(
         string="Automatic workorder close at the start of new order",
@@ -101,7 +101,7 @@ class MrpWorkcenter(models.Model):
     workcenter_uuid = fields.Char(
         string="Uuid",
         tracking=True,
-        help="Used to sincronyze with Zerynth Cloud"
+        help="Used to sincronyze with Zerynth Platform"
     )
 
     @api.model_create_multi
@@ -118,7 +118,7 @@ class MrpWorkcenter(models.Model):
             if record.device_id:
                 if self.search([("id", "!=", record.id), ("device_id", "=", record.device_id.id)]):
                     raise ValidationError(
-                        _("Il device selezionato è gia collegato ad un altro centro di lavoro"))
+                        _("The selected device is already connected to another work center"))
                 record.device_id._compute_workcenter_id()
             else:
                 record.zcloud_sincronize = False
@@ -133,44 +133,44 @@ class MrpWorkcenter(models.Model):
                 odoobot = self.env.ref('base.partner_root')
                 if zcloud_device_workcenter_connection:
                     record.device_id.sudo().message_post(
-                        body=_("<b>OK:</b> Creata connesione tra il device e il workcenter '%s' su Zcloud" %
+                        body=_("<b>OK:</b> Connection created between the device and the workcenter '%s' on Zerynth Platform" %
                                (record.name)),
                         message_type='comment',
                         subtype_id=self.env.ref(
                             'mail.mt_note').id,
                         subject=_(
-                            "Creato connessione device-workcenter su Zcloud"),
+                            "Connection created device-workcenter on Zerynth Platform"),
                         record_name=record.device_id.device_name,
                         author_id=odoobot.id)
                     record.sudo().message_post(
-                        body=_("<b>OK:</b> Creata connesione tra il device e il workcenter '%s' su Zcloud" %
+                        body=_("<b>OK:</b> Connection created between the device and the workcenter '%s' on Zerynth Platform" %
                                (record.name)),
                         message_type='comment',
                         subtype_id=self.env.ref(
                             'mail.mt_note').id,
                         subject=_(
-                            "Creato connessione device-workcenter su Zcloud"),
+                            "Connection created device-workcenter on Zerynth Platform"),
                         record_name=record.name,
                         author_id=odoobot.id)
                 # sincronizzazione creazione errata
                 else:
                     record.device_id.sudo().message_post(
-                        body=_("<b>ERRORE:</b> Connessione tra il device e il workcenter '%s' fallita su Zcloud. <b>Controlla nei log</b>" %
+                        body=_("<b>ERROR:</b> Connection between the device and the workcenter '%s' failed on Zerynth Platform. <b>Check the log</b>" %
                                (record.name)),
                         message_type='comment',
                         subtype_id=self.env.ref(
                             'mail.mt_note').id,
                         subject=_(
-                            "Errore connessione device-workcenter su Zcloud"),
+                            "Error connection between device-workcenter on Zerynth Platform"),
                         record_name=record.device_id.device_name,
                         author_id=odoobot.id)
                     record.sudo().message_post(
-                        body=_("<b>ERRORE:</b> Connessione tra il device e il workcenter '%s' fallita su Zcloud. <b>Controlla nei log</b>" %
+                        body=_("<b>ERROR:</b> Connection between the device and the workcenter '%s' failed on Zerynth Platform. <b>Check the log</b>" %
                                (record.name)),
                         message_type='comment',
                         subtype_id=self.env.ref(
                             'mail.mt_note').id,
                         subject=_(
-                            "Errore connessione device-workcenter su Zcloud"),
+                            "Error connection between device-workcenter on Zerynth Platform"),
                         record_name=record.name,
                         author_id=odoobot.id)

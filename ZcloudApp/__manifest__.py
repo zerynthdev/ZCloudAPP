@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "IoT Connector for Manufacturing",
+    'name': "Zerynth Platform App",
     'summary': """
-        Zerynth Cloud App
+        Zerynth Platform App
     """,
     'description': """
-        Zerynth Cloud App, connect your devices
+        Zerynth Platform App, connect your devices
     """,
     'author': "Zerynth",
     'website': "https://it.zerynth.com/",
     'category': 'Services',
-    'version': '14.2',
+    'version': '14.3',
     "license": "LGPL-3",
-    'price': 0,
+    'price': 150,
     'currency': 'EUR',
-    "images": ['static/src/img/thumbnail.png'],
-
     'depends': [
         'base',
         'mrp'

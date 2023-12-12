@@ -87,7 +87,7 @@
         <field name="arch" type="xml">
             <form string="Devices">
                 <header>
-                    <button string="Scarica dati degli ordini" groups="base.group_no_one" type="object" name="debug_button_get_order_data" confirm="Questa operazione andrà a sovrascrivere i dati degli ordini con quelli ricevuti." class="btn-primary"/>
+                    <button string="Retrieve orders data" groups="base.group_no_one" type="object" name="debug_button_get_order_data" confirm="This operation will overwrite the orders data with those received." class="btn-primary"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -151,7 +151,7 @@
                                                             <div class="col-12 text-muted">
                                                                 timestamp_device:
                                                                 <t t-out="record.timestamp_device.value"/>
-                                                                timworkspace_idstamp_in:
+                                                                timestamp_in:
                                                                 <t t-out="record.timestamp_in.value"/>
                                                             </div>
                                                         </div>

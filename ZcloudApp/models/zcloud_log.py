@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 
 class ZCloudLog(models.Model):
     _name = "z.cloud.log"
-    _description = "Log delle richieste a Zcloud"
+    _description = "Log of the request to Zerynth Platform"
 
     datelog = fields.Datetime(string="Date")
     device_id = fields.Many2one(

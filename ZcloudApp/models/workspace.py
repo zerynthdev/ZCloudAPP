@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 class ZcloudDeviceWorkspace(models.Model):
     _name = "z.cloud.workspace"
-    _description = "The workspace of fleets from Zerynth Cloud"
+    _description = "The workspace of fleets from Zerynth Platform"
     _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     _rec_name = "workspace_id"
     _rec_names_search = ['workspace_id']
@@ -111,24 +111,24 @@ class ZcloudDeviceWorkspace(models.Model):
                     self.order_list = json_data
                     if "orders" not in json_data:
                         _logger.error(
-                            "(GET WORKSPACE ORDER LIST REQUEST)ERROR: 'orders' non trovato nella response")
+                            "(GET WORKSPACE ORDER LIST REQUEST)ERROR: 'orders' not found in the response")
                         # errore token non trovato
                         self.env['z.cloud.log'].log(
                             name="GET WORKSPACE ORDER LIST REQUEST",
                             workspace_id=self.id,
                             request=z_get_workspace_order_list_url,
-                            response="ERROR: 'orders' non trovato nella response",
+                            response="ERROR: 'orders' not found in the response",
                             status_code=200,
                         )
                         return False
                     if "error" in json_data and json_data["error"]:
                         _logger.error(
-                            "(GET WORKSPACE ORDER LIST REQUEST)ERROR: 'error' nella response: %s" % json_data["error"])
+                            "(GET WORKSPACE ORDER LIST REQUEST)ERROR: 'error' in the response: %s" % json_data["error"])
                         self.env['z.cloud.log'].log(
                             name="GET WORKSPACE ORDER LIST REQUEST",
                             workspace_id=self.id,
                             request=z_get_workspace_order_list_url,
-                            response="ERROR: 'error' nella response: %s" % json_data["error"],
+                            response="ERROR: 'error' in the response: %s" % json_data["error"],
                             status_code=200,
                         )
                         return False
@@ -143,11 +143,12 @@ class ZcloudDeviceWorkspace(models.Model):
                     return True
                 else:
                     _logger.error(
-                        '(GET WORKSPACE ORDER LIST REQUEST)ERROR: Errore nella richiesta stato: %s' % response.status_code)
+                        '(GET WORKSPACE ORDER LIST REQUEST)ERROR: status request: %s' % response.status_code)
                     self.env['z.cloud.log'].log(
                         name="GET WORKSPACE ORDER LIST REQUEST",
                         workspace_id=self.id,
-                        response="ERROR: Errore nella richiesta stato: %s" % response.status_code,
+                        response="ERROR: status request: %s, message: %s" % (
+                            response.status_code, response.text),
                         request=z_get_workspace_order_list_url,
                         status_code=response.status_code
                     )
@@ -165,10 +166,10 @@ class ZcloudDeviceWorkspace(models.Model):
                 return False
         else:
             _logger.error(
-                '(GET WORKSPACE ORDER LIST REQUEST)ERROR: Errore: il workspace non ha workspace_id')
+                '(GET WORKSPACE ORDER LIST REQUEST)ERROR: the workspace does not have workspace_id')
             self.env['z.cloud.log'].log(
                 name="GET WORKSPACE ORDER LIST REQUEST",
                 workspace_id=self.id,
-                response="ERROR: Errore: il workspace non ha workspace_id",
+                response="ERROR: the workspace does not have workspace_id",
             )
             return False

@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <!-- pagina con configurazione part program per operazioni bom -->
-                <page string="Zcloud Configuration" name="configuration" groups="ZcloudApp.zcloud_admin">
+                <page string="Zerynth Platform Configuration" name="configuration" groups="ZcloudApp.zcloud_admin">
                     <group string="Part program">
                         <field name="part_program_type"/>
                         <field name="part_program_file_name" invisible="1"/>

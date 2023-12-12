@@ -32,22 +32,22 @@ class MrpWorkorder(models.Model):
     )
 
     zcloud_sincronize = fields.Boolean(
-        string="Order sincronized on zerynth cloud",
+        string="Order sincronized on zerynth platform",
         copy=False
     )
 
     zcloud_id = fields.Char(
-        string="Zerynth cloud ID",
+        string="Zerynth platform ID",
         copy=False
     )
 
     zcloud_stop = fields.Boolean(
-        string="Order stopped on zerynth cloud",
+        string="Order stopped on zerynth platform",
         copy=False
     )
 
     zcloud_get_data = fields.Boolean(
-        string="Order data retrive from zerynth cloud",
+        string="Order data retrive from zerynth platform",
         copy=False
     )
 
@@ -192,7 +192,7 @@ class MrpWorkorder(models.Model):
     @api.model
     def close_order_from_zcloud(self, workorder_name):
         _logger.info(
-            _("Closing workorder from Zcloud with the name %s" % workorder_name))
+            _("Closing workorder from Zerynth Platform with the name %s" % workorder_name))
         workorder_id = self.search([('sequence_name', '=', workorder_name)])
         if len(workorder_id) == 1:
             if workorder_id.workcenter_id.automatic_close_zcloud:
@@ -313,6 +313,7 @@ class MrpWorkorder(models.Model):
                             attachment.id, attachment.access_token)
                     part_program_dict['part_program_type'] = self.part_program_type
                     part_program_dict['part_program_data'] = attachment_url
+                    part_program_dict['part_program_name'] = attachment.name
             if self.part_program_url:
                 part_program_dict['part_program_type'] = self.part_program_type
                 part_program_dict['part_program_data'] = self.part_program_url
@@ -375,25 +376,25 @@ class MrpWorkorder(models.Model):
                     # sincronizzazione creazione riuscita
                     if zcloud_crete_start:
                         self.production_id.sudo().message_post(
-                            body=_("<b>OK CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' creato e avviato su Zcloud." %
+                            body=_("<b>OK CREATION:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' created and started on Zerynth Platform." %
                                    (self.sequence_name, self.name, self.workcenter_id.device_id.device_name, self.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Creato ordine di lavoro su Zcloud"),
+                                "Created work order on Zerynth Platform"),
                             record_name=self.production_id.name,
                             author_id=odoobot.id)
                     # sincronizzazione creazione errata
                     else:
                         self.production_id.sudo().message_post(
-                            body=_("<b>ERRORE CREAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' non creato e avviato su Zcloud. <b>Controlla nei log</b>" %
+                            body=_("<b>ERROR CREATION:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' not created and started on Zerynth Platform. <b>Check the log</b>" %
                                    (self.sequence_name, self.name, self.workcenter_id.device_id.device_name, self.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Errore creazione ordine di lavoro su Zcloud"),
+                                "Error creating work order on Zerynth Platform"),
                             record_name=self.production_id.name,
                             author_id=odoobot.id)
         return super().button_start()
@@ -411,13 +412,13 @@ class MrpWorkorder(models.Model):
                     # creo una nota per dire che è stato chiuso automaticamente da odoo per la configurazione del workcenter
                     if self.env.context.get('automatic_close_new_order'):
                         workorder.production_id.sudo().message_post(
-                            body=_("<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' fermato automaticamente come da configurazione del centro di lavoro." %
+                            body=_("<b>OK STOP:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' automatically stopped as per the work center configuration." %
                                    (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Fermato ordine di lavoro automaticamente da odoo"),
+                                "Stopped work order automatically by odoo"),
                             record_name=workorder.production_id.name,
                             author_id=odoobot.id)
                         # ADESSO C'È IL POLLING DA ZCLOUD
@@ -426,13 +427,13 @@ class MrpWorkorder(models.Model):
                     # nota per chiusura da Zcloud automatic_close_zcloud in context
                     if self.env.context.get('automatic_close_zcloud'):
                         workorder.production_id.sudo().message_post(
-                            body=_("<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' fermato da Zcloud." %
+                            body=_("<b>OK STOP:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' stopped from Zerynth Platform." %
                                    (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Fermato ordine di lavoro da Zcloud"),
+                                "Stopped work order from Zerynth Platform"),
                             record_name=workorder.production_id.name,
                             author_id=odoobot.id)
                         # ADESSO C'È IL POLLING DA ZCLOUD
@@ -441,13 +442,13 @@ class MrpWorkorder(models.Model):
                     # sincronizzazione stop riuscita
                     if zcloud_stop:
                         workorder.production_id.sudo().message_post(
-                            body=_("<b>OK STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' fermato su Zcloud." %
+                            body=_("<b>OK STOP:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' stopped on Zerynth Platform." %
                                    (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Fermato ordine di lavoro su Zcloud"),
+                                "Work order stopped on Zerynth Platform"),
                             record_name=workorder.production_id.name,
                             author_id=odoobot.id)
                         # ADESSO C'È IL POLLING DA ZCLOUD
@@ -456,13 +457,13 @@ class MrpWorkorder(models.Model):
                     # sincronizzazione stop errata
                     else:
                         workorder.production_id.sudo().message_post(
-                            body=_("<b>ERRORE STOP:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' non fermato su Zcloud. <b>Controlla nei log</b>" %
+                            body=_("<b>ERROR STOP:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' not stopped on Zerynth Platform. <b>Check the log</b>" %
                                    (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                             message_type='comment',
                             subtype_id=self.env.ref(
                                 'mail.mt_note').id,
                             subject=_(
-                                "Errore fermare ordine di lavoro su Zcloud"),
+                                "Error stopping work order on Zerynth Platform"),
                             record_name=workorder.production_id.name,
                             author_id=odoobot.id)
         return res
@@ -479,25 +480,25 @@ class MrpWorkorder(models.Model):
                         odoobot = self.env.ref('base.partner_root')
                         if zcloud_delete:
                             workorder.production_id.sudo().message_post(
-                                body=_("<b>OK ELIMINAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' eliminato su Zcloud." %
+                                body=_("<b>OK ELIMINATION:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' deleted on Zerynth Platform." %
                                        (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                                 message_type='comment',
                                 subtype_id=self.env.ref(
                                     'mail.mt_note').id,
                                 subject=_(
-                                    "Eliminato ordine di lavoro su Zcloud"),
+                                    "Deleted work order on Zerynth Platform"),
                                 record_name=workorder.production_id.name,
                                 author_id=odoobot.id)
                         # sincronizzazione delete errata
                         else:
                             workorder.production_id.sudo().message_post(
-                                body=_("<b>ERRORE ELIMINAZIONE:</b> ordine di lavoro '%s', operazione '%s', collegato al device '%s' del centro di lavoro '%s' non eliminato su Zcloud. <b>Controlla nei log</b>" %
+                                body=_("<b>ERROR ELIMINATION:</b> work order '%s', operation '%s', connected to the device '%s' of the work center '%s' not deleted on Zerynth Platform. <b>Check the log</b>" %
                                        (workorder.sequence_name, workorder.name, workorder.workcenter_id.device_id.device_name, workorder.workcenter_id.name)),
                                 message_type='comment',
                                 subtype_id=self.env.ref(
                                     'mail.mt_note').id,
                                 subject=_(
-                                    "Errore eliminare ordine di lavoro su Zcloud"),
+                                    "Error deleting work order on Zerynth Platform"),
                                 record_name=workorder.production_id.name,
                                 author_id=odoobot.id)
         return super(MrpWorkorder, self).unlink()
@@ -595,13 +596,13 @@ class MrpWorkorder(models.Model):
         if self.workcenter_id.device_id:
             odoobot = self.env.ref('base.partner_root')
             self.workcenter_id.device_id.sudo().message_post(
-                body=_("Scaricati i dati relativi all'ordine di lavoro '%s', operazione '%s' da Zcloud.<br/>Dati ricevuti da Zcloud:<br/>%s" %
+                body=_("Retrived data for work order '%s', operation '%s' from Zerynth Platform.<br/>Data received from Zerynth Platform:<br/>%s" %
                        (self.sequence_name, self.name, order_datas)),
                 message_type='comment',
                 subtype_id=self.env.ref(
                     'mail.mt_note').id,
                 subject=_(
-                    "Recupero dati ordine di lavoro da Zcloud"),
+                    "Retrieving work order data from Zerynth Platform"),
                 record_name=self.workcenter_id.device_id.device_name,
                 author_id=odoobot.id)
         # SE NE WORKCENTER C'È CALCOLA TEMPI DI IDLE(MACCHINA NON ATTIVA) ALLORA ODOO CREA I TEMPI DI INATTIVITÀ
