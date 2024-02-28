@@ -9,12 +9,12 @@
         <field name="arch" type="xml">
             <sheet position="before">
                 <header>
-                    <button string="Create connection with device" groups="ZcloudApp.zcloud_admin" type="object" name="button_create_connection_asset_workspace" class="btn-primary" attrs="{'invisible': ['|', ('device_id', '=', False), ('zcloud_sincronize', '=', True)]}"/>
+                    <button string="Create connection with device" groups="ZcloudApp.zcloud_admin" type="object" name="button_create_connection_asset_workspace" class="btn-primary" />
                 </header>
             </sheet>
             <field name="name" position="after">
                 <field name="zcloud_sincronize" readonly="1" attrs="{'invisible': [('device_id', '=', False)]}" groups="ZcloudApp.zcloud_admin"/>
-                <field name="device_id" attrs="{'readonly': [('zcloud_sincronize', '=', True)]}" groups="ZcloudApp.zcloud_admin"/>
+                <field name="device_id" groups="ZcloudApp.zcloud_admin"/>
                 <field name="workcenter_uuid" readonly="1" groups="ZcloudApp.zcloud_admin"/>
             </field>
             <sheet position="after">
